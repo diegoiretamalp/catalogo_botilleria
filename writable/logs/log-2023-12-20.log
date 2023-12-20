@@ -1,0 +1,9 @@
+CRITICAL - 2023-12-20 00:20:02 --> Invalid file: "index_view.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('index_view.php')
+ 2 SYSTEMPATH\Common.php(1190): CodeIgniter\View\View->render('index_view', [], true)
+ 3 APPPATH\Controllers\MainController.php(9): view('index_view')
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\MainController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MainController))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
