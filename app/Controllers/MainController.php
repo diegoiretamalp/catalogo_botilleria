@@ -4,8 +4,8 @@ namespace App\Controllers;
 
 class MainController extends BaseController
 {
-    public function index(): string
+    public function index()
     {
-        return view('layout/index_view');
+        return redirect('productos');
     }
 }
