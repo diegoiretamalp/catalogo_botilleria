@@ -20,16 +20,24 @@ class ProductosController extends BaseController
             'estado' => true,
             'deleted' => false
         ];
-        $productos = $this->Productos_model->getProductos($where_productos);
         // pre_die($productos->paginate(10));
+        $page = 1;
+        $perPage = 10;
         $categorias = GetResultsByWhere('categorias', $where_categorias);
+
+
+        $productos = $this->Productos_model->getProductos($where_productos);
 
         $data = [
             'title' => 'Productos',
-            'main_view' => 'layout/productos/productos_feed_view',
+            'main_view' => 'productos/productos_feed_view',
             'productos' => !empty($productos) ? $productos : [],
             // 'paginator' => !empty($productos) ? $productos->pager : [],
             'categorias' => !empty($categorias) ? $categorias : [],
+            'js_content' => [
+                '0' => 'layout/js/GeneralJS',
+                '1' => 'productos/js/ProductosFeedJS'
+            ],
         ];
         return view('layout/layout_main_view', $data);
     }
@@ -64,108 +72,60 @@ class ProductosController extends BaseController
 
         $data = [
             'title' => $categoria->nombre,
-            'main_view' => 'layout/productos/productos_feed_view',
+            'main_view' => 'productos/productos_feed_view',
             'productos' => !empty($productos) ? $productos : [],
             // 'paginator' => !empty($productos) ? $productos->pager : [],
             'categorias' => !empty($categorias) ? $categorias : [],
         ];
         return view('layout/layout_main_view', $data);
     }
-    public function NuevoProducto(): string
-    {
-        // $post = $this->request->getPost();
-        // if (!empty($post)) {
-        //     if ($validate = $this->ValidaFields($post)) {
-        //         $this->session->setflashdata("error_title", "Error de Validación");
-        //         $this->session->setflashdata("error", "Se encontraron los siguientes errores: " . implode(", ", $validate));
-        //         $this->session->setflashdata("errores", $post);
-        //         return redirect('productos/nuevo');
-        //     } else {
 
-        //         $producto_array = [
-        //             'nombre' => !empty($post['nombre']) ? $post['nombre'] : NULL,
-        //             'descripcion' => !empty($post['descripcion']) ? $post['descripcion'] : NULL,
-        //             'stock' => !empty($post['stock']) ? $post['stock'] : NULL,
-        //             'precio' => !empty($post['precio']) ? $post['precio'] : NULL,
-        //             'estado' => true,
-        //             'created_at' => getTimestamp()
-        //         ];
 
-        //         $id_producto = $this->Productos_model->insertProducto($producto_array);
-        //         if ($id_producto > 0) {
-        //             $this->session->setflashdata("success_title", "Gestión de Productos");
-        //             $this->session->setflashdata("success", "Se ha realizado la creación de un nuevo Producto correctamente.");
-        //             return redirect('productos/listado');
-        //         } else {
-        //             $this->session->setflashdata("error_title", "Error Interno");
-        //             $this->session->setflashdata("error", "Ha Ocurrido un problema al crear el producto. Intentelo Nuevamente, si el problema persiste contácte a Soporte");
-        //             $this->session->setflashdata("errores", $post);
-        //             return redirect(base_url('productos/nuevo'));
-        //         }
-        //     }
-        // }
-
-        $data = [
-            'title' => 'Formulario de Nuevo Producto',
-            'main_view' => 'productos/productos_new_view'
-        ];
-        return view('layout/layout_main_view', $data);
-    }
-
-    public function EditarProducto($id)
+    public function PaginarFeed()
     {
         $post = $this->request->getPost();
-        $data = [
-            'main_view' => 'productos/productos_new_view'
-        ];
-        return view('layout/layout_main_view', $data);
-    }
-    public function EliminarProducto()
-    {
-        $post = $this->request->getPost();
-        $data = [
-            'main_view' => 'productos/productos_new_view'
-        ];
-        return view('layout/layout_main_view', $data);
-    }
-    // private function ValidaFields($data)
-    // {
-    //     $error = [];
-    //     $error_flag = false;
+        $rsp = [];
+        if (!empty($post)) {
+            // pre_die();
+            $page = !empty($post['data']['page']) ? $post['data']['page'] : 1; 
+            $perPage = !empty($post['data']['perPage']) ? $post['data']['perPage'] : 10;
+            $where_productos = [
+                'estado' => true,
+                'deleted' => false
+            ];
+            $productos = $this->Productos_model->getProductosPaginate($where_productos, $perPage, $page);
 
-    //     if (validateText(trim($data['nombre']))) {
-    //         $error_flag = true;
-    //         $error['nombre'] = 'Nombre';
-    //     }
-    //     if (!empty($data['descripcion'])) {
-    //         if (validateText(trim($data['descripcion']))) {
-    //             $error_flag = true;
-    //             $error['descripcion'] = 'Descripcion';
-    //         }
-    //     }
-    //     if (!empty($data['precio'])) {
-    //         if (!is_numeric(trim($data['precio']))) {
-    //             $error_flag = true;
-    //             $error['precio'] = 'Precio';
-    //         }
-    //     } else {
-    //         $error_flag = true;
-    //         $error['precio'] = 'Precio';
-    //     }
-    //     if (!empty($data['stock'])) {
-    //         if (!is_numeric(trim($data['stock']))) {
-    //             $error_flag = true;
-    //             $error['stock'] = 'Stock';
-    //         }
-    //     } else {
-    //         $error_flag = true;
-    //         $error['stock'] = 'Stock';
-    //     }
+            // $ = 10; // Número de resultados por página por defecto es 10
+            // $VehiculosModel = new VehiculosModel();
+            // $result = $VehiculosModel->patentesTexto($texto, $page, $perPage, $fecha_inicial, $fecha_final);
+            //pre_die($result);
 
-    //     if ($error_flag) {
-    //         return $error;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+            if (!empty($productos)) {
+                $rsp = [
+                    'tipo' => 'success',
+                    'title' => 'Gestión de Vehiculos',
+                    'msg' => 'Datos cargados con éxito.',
+                    'data' => $productos,
+                ];
+                http_response_code(200); // Código de estado HTTP: 200 OK
+            } else {
+                $rsp = [
+                    'tipo' => 'warning',
+                    'title' => 'Gestión de Vehiculos',
+                    'msg' => 'No se han encontado resultados para los filtros establecidos.'
+                ];
+                http_response_code(404); // Código de estado HTTP: 200 OK
+            }
+        } else {
+            $rsp = [
+                'tipo' => 'error',
+                'title' => 'Error de Validación',
+                'msg' => 'Datos no recibidos por el servidor'
+            ];
+            http_response_code(400); // Código de estado HTTP: 200 OK
+        }
+        header('Content-Type: application/json');
+        echo json_encode($rsp);
+        exit;
+    }
 }

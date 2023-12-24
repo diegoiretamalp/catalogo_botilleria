@@ -942,12 +942,12 @@ h1, h2, h3, h4, h5, h6 {
     right: 20px; }
 
 .form-select {
-  height: 40px;
+  height: 39px;
   width: 100%; }
   .form-select .nice-select {
     border: none;
     border-radius: 0px;
-    height: 40px;
+    height: 37px;
     background: #f9f9ff;
     padding-left: 45px;
     padding-right: 40px;

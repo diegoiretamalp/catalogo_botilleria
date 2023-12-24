@@ -13,9 +13,9 @@ define('USUARIO_ROL', 1);
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <span>
-                    <h3><?= isset($title) ? strtoupper($title) : '' ?></h3>
-                </span>
+                <!-- <span> -->
+                    <!-- <h3><?= isset($title) ? strtoupper($title) : '' ?></h3> -->
+                <!-- </span> -->
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
@@ -24,14 +24,14 @@ define('USUARIO_ROL', 1);
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PRODUCTOS</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="<?= base_url('admin/productos/listado') ?>">Listado de Productos</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="<?= base_url('admin/productos/listado') ?>">Listado Productos</a></li>
                                     <li class="nav-item"><a class="nav-link" href="<?= base_url('admin/productos/nuevo') ?>">Nuevo Producto</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item submenu dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIAS</a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="<?= base_url('admin/categorias/listado') ?>">Listado de Categorias</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="<?= base_url('admin/categorias/listado') ?>">Listado Categorias</a></li>
                                     <li class="nav-item"><a class="nav-link" href="<?= base_url('admin/categorias/nueva') ?>">Nueva Categoria</a></li>
                                 </ul>
                             </li>
