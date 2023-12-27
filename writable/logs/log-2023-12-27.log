@@ -1,0 +1,22 @@
+INFO - 2023-12-27 01:28:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-27 01:28:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductosController::$session is deprecated in APPPATH\Controllers\ProductosController.php on line 9.
+ 1 SYSTEMPATH\CodeIgniter.php(914): App\Controllers\ProductosController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-12-27 01:28:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductosController::$Productos_model is deprecated in APPPATH\Controllers\ProductosController.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(914): App\Controllers\ProductosController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+INFO - 2023-12-27 01:28:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2023-12-27 01:28:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductosController::$session is deprecated in APPPATH\Controllers\ProductosController.php on line 9.
+ 1 SYSTEMPATH\CodeIgniter.php(914): App\Controllers\ProductosController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()
+WARNING - 2023-12-27 01:28:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\ProductosController::$Productos_model is deprecated in APPPATH\Controllers\ProductosController.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(914): App\Controllers\ProductosController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(70): CodeIgniter\CodeIgniter->run()

@@ -16,6 +16,7 @@ $routes->get('productos', 'ProductosController::index');
 $routes->get('productos/nuevo', 'ProductosController::NuevoProducto');
 $routes->post('productos/nuevo', 'ProductosController::NuevoProducto');
 $routes->post('productos/paginar-feed', 'ProductosController::PaginarFeed');
+$routes->post('productos/paginar-procate/(:any)', 'ProductosController::PaginarProCate/$1');
 
 ################### RUTAS PRODUCTOS-CATEGORIAS ###################
 $routes->get('productos/(:any)/', 'ProductosController::ProductosCategoria/$1');

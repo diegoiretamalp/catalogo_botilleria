@@ -39,7 +39,8 @@ class Productos_model extends Model
 		$productos = $this->builder();
 
 		// Aplica condiciones de filtro si se proporcionan, de lo contrario, filtra por eliminado = false
-		$this->applyWhereConditions($productos, $where);
+		// $this->applyWhereConditions($productos, $where);
+		// $productos->where($where);
 
 		// Obtiene el total de productos para calcular el número total de páginas
 		$total_productos = $this->getTotalPaginasProductos($where);
@@ -47,7 +48,7 @@ class Productos_model extends Model
 		// Calcula el offset y obtiene los resultados paginados
 		$offset = ($currentPage - 1) * $perPage;
 		$data = [
-			'data'           => $productos->get($perPage, $offset)->getResultObject(),
+			'data'           => $productos->where($where)->get($perPage, $offset)->getResultObject(),
 			'total_productos' => $total_productos->total_productos,
 			'total_paginas'   => (int) ceil($total_productos->total_productos / $perPage),
 		];

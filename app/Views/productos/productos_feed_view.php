@@ -33,10 +33,11 @@
             <!-- Start Filter Bar -->
             <div class="filter-bar d-flex flex-wrap align-items-center">
                 <div class="sorting mr-auto">
-                    <select>
-                        <option value="1">Mostrar 10</option>
-                        <option value="1">Mostrar 25</option>
-                        <option value="1">Mostrar 50</option>
+                    <select id="perPage">
+                        <option value="9">Mostrar 9</option>
+                        <option value="18">Mostrar 18</option>
+                        <option value="30">Mostrar 30</option>
+                        <option value="50">Mostrar 50</option>
                     </select>
                 </div>
                 <div class="pagination">

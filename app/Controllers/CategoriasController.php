@@ -21,7 +21,7 @@ class CategoriasController extends BaseController
 
         $data = [
             'title' => 'Productos',
-            'main_view' => 'layout/categorias/categorias_feed_view',
+            'main_view' => 'categorias/categorias_feed_view',
             'categorias' => !empty($categorias) ? $categorias : [],
         ];
         return view('layout/layout_main_view', $data);

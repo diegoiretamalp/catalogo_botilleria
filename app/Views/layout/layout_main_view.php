@@ -21,7 +21,7 @@
     <!-- <link rel="stylesheet" href="<?= ASSETS_CSS ?>font-awesome.min.css"> -->
     <link rel="stylesheet" href="<?= ASSETS_CSS ?>themify-icons.css">
     <link rel="stylesheet" href="<?= ASSETS_CSS ?>bootstrap.css">
-    <link rel="stylesheet" href="<?= ASSETS_CSS ?>owl.carousel.css">
+    <link rel="stylesheet" href="<?= ASSETS_CSS ?>owl.carousel.min.css">
     <link rel="stylesheet" href="<?= ASSETS_CSS ?>nice-select.css">
     <link rel="stylesheet" href="<?= ASSETS_CSS ?>nouislider.min.css">
     <link rel="stylesheet" href="<?= ASSETS_CSS ?>ion.rangeSlider.css">
@@ -60,6 +60,7 @@ background-color: #ffffff;
     <script src="<?= ASSETS_JS ?>jquery.nice-select.min.js"></script>
     <script src="<?= ASSETS_JS ?>jquery.sticky.js"></script>
     <script src="<?= ASSETS_JS ?>nouislider.min.js"></script>
+	<script src="<?= ASSETS_JS ?>countdown.js"></script>
     <script src="<?= ASSETS_JS ?>jquery.magnific-popup.min.js"></script>
     <script src="<?= ASSETS_JS ?>owl.carousel.min.js"></script>
     <!--gmaps Js-->

@@ -8,6 +8,7 @@
     let preLoadBool = false;
     let loadedResults = [];
     let data_p = [];
+    let url_categoria = '<?= !empty($url_categoria) ? $url_categoria : '' ?>'
     // Función principal que se ejecuta al cargar el documento
     $(document).ready(function() {
         // Variables para la paginación
@@ -20,7 +21,7 @@
     });
 
     function paginar(page, perPage) {
-        let url = '<?= base_url('productos/paginar-feed') ?>'; // Reemplaza con tu URL
+        let url = '<?= base_url('productos/paginar-procate/') ?>' + url_categoria; // Reemplaza con tu URL
         let data = {
             page: page,
             perPage: perPage,
